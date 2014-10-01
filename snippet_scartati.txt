@@ -1,0 +1,42 @@
+    $("#cambia").click(function(){
+					var id = $('.titolo').val();
+    				var i = $('#valore_i').val();
+    				var im = $('#valore_im').val();
+					var c = $('#valore_c').val();
+    				var cm = $('#valore_cm').val();
+					var f = $('#valore_f').val();
+
+    $.ajax({
+   
+
+  		url:    "http://www.labnova.it/progetto_colonna/insert_if/insert.php"
+                  
+                  + '?i='+id,
+                  
+         success: function(data) {
+                      if(result.isOk == false)
+                         $(".valori_cambiati").html(data);
+                  },
+         async:   true
+    });          
+
+
+});
+
+
+------------------
+   
+$.post({
+    "http://www.labnova.it/progetto_colonna/insert_if/insert.php",
+    {value:i}, function(data) {
+      $(".valori_cambiati").html(data);
+
+    });
+
+    $.post({
+    "http://www.labnova.it/progetto_colonna/insert_if/insert.php",
+    {value:id}, function(data) {
+      $(".valori_cambiati").html(data); 
+
+  
+    } 
